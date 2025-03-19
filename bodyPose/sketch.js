@@ -15,6 +15,9 @@ function mousePressed() {
 
 function setup() {
   createCanvas(640, 480);
+  // creamos una capa para gráficos
+  painting = createGraphics(640, 480);
+  painting.clear();
     // Create the video and hide it
     video = createCapture(VIDEO);
     video.size(640, 480);
@@ -33,11 +36,11 @@ function gotPoses(results) {
 
 function draw() {
   // estos son los cuadros que queremos interactivos
-  noStroke();
-  fill(255, 0, 0, 0.5);
-  rect(width/2, 0, width/2, height/2);
-  fill(0, 0, 255, 0.5);
-  rect(0, 0, width/2, height/2);
+  painting.noStroke();
+  painting.fill(255, 0, 0, 0.5);
+  painting.rect(width/2, 0, width/2, height/2);
+  painting.fill(0, 0, 255, 0.5);
+  painting.rect(0, 0, width/2, height/2);
   //fill(0, 255, 255, 0.5);
   //rect(0, 0, width, height);
 
@@ -75,5 +78,7 @@ function draw() {
             }
           }
         }
+        // aquí colocamos nuestra capa para dibujar hecha con createGraphics
+       image(painting, 0, 0); 
       }
 
