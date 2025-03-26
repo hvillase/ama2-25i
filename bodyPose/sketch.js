@@ -39,6 +39,7 @@ function draw() {
   painting.noStroke();
   painting.fill(255, 0, 0, 0.5);
   painting.rect(width/2, 0, width/2, height/2);
+  // cuadro
   painting.fill(0, 0, 255, 0.5);
   painting.rect(0, 0, width/2, height/2);
   //fill(0, 255, 255, 0.5);
@@ -69,12 +70,22 @@ function draw() {
       let pose = poses[i];
           // Iterate through all the keypoints for each pose
     for (let j = 0; j < pose.keypoints.length; j++) {
-      let keypoint = pose.keypoints[j];
+      //let keypoint = pose.keypoints[j];
+      let index = pose.keypoints[9];
             // Only draw a circle if the keypoint's confidence is greater than 0.1
-            if (keypoint.confidence > 0.1) {
+            /*if (keypoint.confidence > 0.1) {
               fill(0, 255, 0);
               noStroke();
               circle(keypoint.x, keypoint.y, 10);
+            }*/
+            if (index.confidence > 0.1) {
+              fill(0, 255, 0);
+              noStroke();
+              circle(index.x, index.y, 10);
+            }
+            if(index.x > width/2 && index.y < height/2){
+              fill(255, 255, 0);
+              rect(width/2, (height/2)-130, 130, 130);
             }
           }
         }
