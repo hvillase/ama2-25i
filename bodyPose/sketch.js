@@ -92,4 +92,3 @@ function draw() {
         // aquí colocamos nuestra capa para dibujar hecha con createGraphics
        image(painting, 0, 0); 
       }
-
